@@ -1,4 +1,4 @@
-group 'de.zalando.aruha'
+group 'org.zalando'
 version '1.0.0'
 
 apply plugin: 'java'

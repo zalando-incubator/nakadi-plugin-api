@@ -1,4 +1,4 @@
-package de.zalando.aruha.nakadi.plugin.api;
+package org.zalando.nakadi.plugin.api;
 
 public interface ApplicationService {
 

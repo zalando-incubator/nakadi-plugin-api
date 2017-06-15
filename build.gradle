@@ -1,5 +1,5 @@
 group 'org.zalando'
-version '1.0.5'
+version '1.1.0'
 
 apply plugin: 'java'
 apply plugin: 'maven'
@@ -39,12 +39,12 @@ uploadArchives {
                 name 'nakadi-plugin-api'
                 packaging 'jar'
                 description 'Nakadi API to write extensions'
-                url 'https://github.com/zalando/nakadi-plugin-api'
+                url 'https://github.com/zalando-incubator/nakadi-plugin-api'
 
                 scm {
-                    url 'scm:git@github.com:zalando/nakadi-plugin-api.git'
-                    connection 'scm:git@github.com:zalando/nakadi-plugin-api.git'
-                    developerConnection 'scm:git@github.com:zalando/nakadi-plugin-api.git'
+                    url 'scm:git@github.com:zalando-incubator/nakadi-plugin-api.git'
+                    connection 'scm:git@github.com:zalando-incubator/nakadi-plugin-api.git'
+                    developerConnection 'scm:git@github.com:zalando-incubator/nakadi-plugin-api.git'
                 }
 
                 licenses {
@@ -59,6 +59,10 @@ uploadArchives {
                     developer {
                         id 'v1ctor'
                         name 'Victor Buldakov'
+                    }
+                    developer {
+                        id 'lionel.montrieux@zalando.de'
+                        name 'Lionel Montrieux'
                     }
                 }
             }

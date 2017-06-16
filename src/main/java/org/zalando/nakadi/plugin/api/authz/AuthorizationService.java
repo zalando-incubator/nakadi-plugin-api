@@ -1,10 +1,14 @@
 package org.zalando.nakadi.plugin.api.authz;
 
-import java.util.List;
+import org.json.JSONObject;
 
 public interface AuthorizationService {
 
-    boolean isAuthorized(String token, List<AuthorizationAttribute> attributeList);
+    enum Operation {
+        READ, WRITE, ADMIN
+    }
+
+    boolean isAuthorized(String token, Operation operation, JSONObject eventType);
 
     boolean isAuthorizationAttributeValid(AuthorizationAttribute attribute);
 

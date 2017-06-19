@@ -1,6 +1,5 @@
 package org.zalando.nakadi.plugin.api.authz;
 
-import org.json.JSONObject;
 import org.zalando.nakadi.plugin.api.PluginException;
 
 public interface AuthorizationService {
@@ -10,15 +9,15 @@ public interface AuthorizationService {
     }
 
     /**
-     * Check whether a caller, represented by a token, is authorized to perform an operation on an event type.
+     * Check whether a caller, represented by a token, is authorized to perform an operation on a resource.
      *
-     * @param token The caller token
+     * @param subject The subject that performs the operation on the resource
      * @param operation the operation (read, write, admin) to authorize
-     * @param eventType a JSON representation of the event type on which the operation is requested
-     * @return true if the caller, identified by its token, is authorized to perform operation on the eventType
+     * @param resource the resource that the subject wants to perform an operation on
+     * @return true if the subject, is authorized to perform the operation on the resource
      * @throws PluginException if an error occurred during execution
      */
-    boolean isAuthorized(String token, Operation operation, JSONObject eventType);
+    boolean isAuthorized(Subject subject, Operation operation, Resource resource);
 
     /**
      * Check whether an attribute is valid.

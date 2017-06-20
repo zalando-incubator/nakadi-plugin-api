@@ -61,10 +61,6 @@ uploadArchives {
 
                 developers {
                     developer {
-                        id 'v1ctor'
-                        name 'Victor Buldakov'
-                    }
-                    developer {
                         id 'lionel.montrieux@zalando.de'
                         name 'Lionel Montrieux'
                     }

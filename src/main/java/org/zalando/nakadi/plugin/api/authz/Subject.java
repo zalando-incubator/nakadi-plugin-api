@@ -1,8 +1,20 @@
 package org.zalando.nakadi.plugin.api.authz;
 
-public interface Subject {
+public class Subject {
 
-    String getName();
+    private final String name;
+    private final String token;
 
-    String getToken();
+    public Subject(final String name, final String token) {
+        this.name = name;
+        this.token = token;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getToken() {
+        return token;
+    }
 }

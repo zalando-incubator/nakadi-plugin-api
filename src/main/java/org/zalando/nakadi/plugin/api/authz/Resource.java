@@ -1,13 +1,31 @@
 package org.zalando.nakadi.plugin.api.authz;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
-public interface Resource {
+public class Resource {
 
-    String getName();
+    private final String name;
+    private final String type;
+    private Map<AuthorizationService.Operation, List<AuthorizationAttribute>> authorizationAttributes;
 
-    String getType();
+    public Resource(final String name, final String type,
+                    final Map<AuthorizationService.Operation, List<AuthorizationAttribute>> authorizationAttributes) {
+        this.name = name;
+        this.type = type;
+        this.authorizationAttributes = authorizationAttributes;
+    }
 
-    Optional<List<AuthorizationAttribute>> getAttributesForOperation(AuthorizationService.Operation operation);
+    public String getName() {
+        return name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public Optional<List<AuthorizationAttribute>> getAttributesForOperation(final AuthorizationService.Operation operation) {
+        return Optional.ofNullable(authorizationAttributes.get(operation));
+    }
 }

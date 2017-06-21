@@ -17,7 +17,7 @@ public interface AuthorizationService {
      * @return true if the subject, is authorized to perform the operation on the resource
      * @throws PluginException if an error occurred during execution
      */
-    boolean isAuthorized(Subject subject, Operation operation, Resource resource);
+    boolean isAuthorized(Subject subject, Operation operation, Resource resource) throws PluginException;
 
     /**
      * Check whether an attribute is valid.
@@ -27,7 +27,8 @@ public interface AuthorizationService {
      *
      * @param attribute the attribute to validate
      * @return true if the attribute is valid
+     * @throws PluginException if an error occurred during execution
      */
-    boolean isAuthorizationAttributeValid(AuthorizationAttribute attribute);
+    boolean isAuthorizationAttributeValid(AuthorizationAttribute attribute) throws PluginException;
 
 }

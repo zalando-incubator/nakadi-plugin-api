@@ -1,20 +1,8 @@
 package org.zalando.nakadi.plugin.api.authz;
 
-public class AuthorizationAttribute {
+public interface AuthorizationAttribute {
 
-    private final String dataType;
-    private final String value;
+    String getDataType();
 
-    public AuthorizationAttribute(final String dataType, final String value) {
-        this.dataType = dataType;
-        this.value = value;
-    }
-
-    public String getDataType() {
-        return dataType;
-    }
-
-    public String getValue() {
-        return value;
-    }
+    String getValue();
 }

@@ -9,15 +9,16 @@ public interface AuthorizationService {
     }
 
     /**
-     * Check whether a caller, represented by a token, is authorized to perform an operation on a resource.
+     * Check whether a caller, represented by a token, is authorized to perform an operation on a resource. Notice that
+     * the subject is not an explicit parameter of this method call. That's because this method expects the subject to
+     * be accessible in the context, as done in org.springframework.security.core.context.SecurityContextHolder
      *
-     * @param subject The subject that performs the operation on the resource
      * @param operation the operation (read, write, admin) to authorize
      * @param resource the resource that the subject wants to perform an operation on
      * @return true if the subject, is authorized to perform the operation on the resource
      * @throws PluginException if an error occurred during execution
      */
-    boolean isAuthorized(Subject subject, Operation operation, Resource resource) throws PluginException;
+    boolean isAuthorized(Operation operation, Resource resource) throws PluginException;
 
     /**
      * Check whether an attribute is valid.

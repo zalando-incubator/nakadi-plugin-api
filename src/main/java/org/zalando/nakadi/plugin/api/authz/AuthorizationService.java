@@ -2,6 +2,8 @@ package org.zalando.nakadi.plugin.api.authz;
 
 import org.zalando.nakadi.plugin.api.PluginException;
 
+import java.util.List;
+
 public interface AuthorizationService {
 
     enum Operation {
@@ -31,5 +33,17 @@ public interface AuthorizationService {
      * @throws PluginException if an error occurred during execution
      */
     boolean isAuthorizationAttributeValid(AuthorizationAttribute attribute) throws PluginException;
+
+    /**
+     * Filters a list based on authorization rules.
+     *
+     * For example, if a user is only able to see the event types for which he has some permissions, this method
+     * will take the list of all event types, and return only those that the caller can see.
+     *
+     * @param input the list to filter
+     * @return a filtered list
+     * @throws PluginException if an error occurred during execution
+     */
+    List<Object> filter(List<Object> input) throws PluginException;
 
 }

@@ -35,7 +35,7 @@ public interface AuthorizationService {
     boolean isAuthorizationAttributeValid(AuthorizationAttribute attribute) throws PluginException;
 
     /**
-     * Filters a list based on authorization rules.
+     * Filters a list of resources based on authorization rules.
      *
      * For example, if a user is only able to see the event types for which he has some permissions, this method
      * will take the list of all event types, and return only those that the caller can see.
@@ -44,6 +44,6 @@ public interface AuthorizationService {
      * @return a filtered list
      * @throws PluginException if an error occurred during execution
      */
-    List<Object> filter(List<Object> input) throws PluginException;
+    List<Resource> filter(List<Resource> input) throws PluginException;
 
 }

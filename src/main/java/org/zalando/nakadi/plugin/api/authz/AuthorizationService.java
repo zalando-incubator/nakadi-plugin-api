@@ -32,4 +32,14 @@ public interface AuthorizationService {
      */
     boolean isAuthorizationAttributeValid(AuthorizationAttribute attribute) throws PluginException;
 
+    /**
+     * Check whether a uid is merchant api application.
+     *
+     * Example: Take an attribute with key 'applicationname' and value 'external'. A plugin implementing this method could
+     * check that this application name is a special application that forwards all requests from other/external applications.
+     *
+     * @param attribute the attribute to validate
+     * @return true if the attribute is a gateway application
+     */
+    boolean isGatewayApplicationAttribute(AuthorizationAttribute attribute) throws PluginException;
 }

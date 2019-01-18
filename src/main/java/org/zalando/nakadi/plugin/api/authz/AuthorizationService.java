@@ -51,7 +51,7 @@ public interface AuthorizationService {
      *
      * @return returns the 'Subject' who made the request. The name of the Subject can be then obtained from the
      * object.
-     * @throws PluginException
+     * @throws PluginException if an error occurred during execution
      */
     Subject getSubject() throws PluginException;
 }

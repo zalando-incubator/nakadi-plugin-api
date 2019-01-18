@@ -30,10 +30,6 @@ signing {
     sign configurations.archives
 }
 
-dependencies {
-    compile('javax.servlet:servlet-api:2.5');
-}
-
 uploadArchives {
     repositories {
         mavenDeployer {

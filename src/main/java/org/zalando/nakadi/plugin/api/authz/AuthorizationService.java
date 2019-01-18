@@ -3,8 +3,6 @@ package org.zalando.nakadi.plugin.api.authz;
 import org.zalando.nakadi.plugin.api.PluginException;
 
 import java.util.List;
-import javax.servlet.ServletRequest;
-import javax.servlet.Filter;
 
 public interface AuthorizationService {
 
@@ -51,20 +49,9 @@ public interface AuthorizationService {
     /**
      * Get the subject from the request made to the server.
      *
-     * @param servletRequest Request made by the caller
      * @return returns the 'Subject' who made the request. The name of the Subject can be then obtained from the
      * object.
      * @throws PluginException
      */
-    Subject getSubject(ServletRequest servletRequest) throws PluginException;
-
-    /**
-     * Additional filter that can be added to the end of the filter chain during authorization to custom
-     * filter the requests.
-     *
-     * @return Additional Filter object that will be used in the security chain for the requests
-     * @throws PluginException
-     */
-    Filter additionalAuthFilter() throws PluginException;
-
+    Subject getSubject() throws PluginException;
 }

@@ -46,4 +46,12 @@ public interface AuthorizationService {
      */
     List<Resource> filter(List<Resource> input) throws PluginException;
 
+    /**
+     * Get the subject from the request made to the server.
+     *
+     * @return returns the 'Subject' who made the request. The name of the Subject can be then obtained from the
+     * object.
+     * @throws PluginException if an error occurred during execution
+     */
+    Subject getSubject() throws PluginException;
 }

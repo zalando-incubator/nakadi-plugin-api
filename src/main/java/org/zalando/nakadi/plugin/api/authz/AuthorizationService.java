@@ -16,7 +16,7 @@ public interface AuthorizationService {
      * be accessible in the context, as done in org.springframework.security.core.context.SecurityContextHolder
      *
      * @param operation the operation (read, write, admin) to authorize
-     * @param resource  the resource that the subject wants to perform an operation on
+     * @param resource the resource that the subject wants to perform an operation on
      * @return true if the subject, is authorized to perform the operation on the resource
      * @throws PluginException if an error occurred during execution
      */
@@ -24,7 +24,7 @@ public interface AuthorizationService {
 
     /**
      * Check whether an attribute is valid.
-     * <p>
+     *
      * Example: Take an attribute with key 'username' and value 'nakadi'. A plugin implementing this method could
      * check that (a) 'username' is an accepted key, and (b) 'nakadi' is a username that exists and is active.
      *
@@ -39,7 +39,7 @@ public interface AuthorizationService {
 
     /**
      * Filters a list of resources based on authorization rules.
-     * <p>
+     *
      * For example, if a user is only able to see the event types for which he has some permissions, this method
      * will take the list of all event types, and return only those that the caller can see.
      *

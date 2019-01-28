@@ -28,14 +28,12 @@ public interface AuthorizationService {
      * Example: Take an attribute with key 'username' and value 'nakadi'. A plugin implementing this method could
      * check that (a) 'username' is an accepted key, and (b) 'nakadi' is a username that exists and is active.
      *
-     * @param attribute the attribute to validate
-     * @param resourceType the type of resource that the subject wants to perform an operation on
-     * @param operation the operation that the subject wants to perform on the resource
-     * @return true if the attribute is valid
+     * @param operation the operation (read, write, admin) to authorize
+     * @param resource the resource that the subject wants to perform an operation on
+     * @return true if the all the attributes of the resource have the correct access for the operation.
      * @throws PluginException if an error occurred during execution
      */
-    boolean isAuthorizationAttributeValid(AuthorizationAttribute attribute, String resourceType, Operation operation)
-            throws PluginException;
+    boolean isAuthorizationAttributeValid(Operation operation, Resource resource) throws PluginException;
 
     /**
      * Filters a list of resources based on authorization rules.

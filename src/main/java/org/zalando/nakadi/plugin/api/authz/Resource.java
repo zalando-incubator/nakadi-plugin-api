@@ -6,7 +6,6 @@ import java.util.Optional;
 
 public interface Resource<T> {
 
-
     String getName();
 
     String getType();

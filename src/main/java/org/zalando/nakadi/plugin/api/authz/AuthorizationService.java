@@ -24,7 +24,7 @@ public interface AuthorizationService {
     boolean isAuthorized(Operation operation, Resource resource) throws PluginException;
 
     /**
-     * Check whether an attribute is valid.
+     * Check whether a Resource is valid.
      *
      * Example: Take an attribute with key 'username' and value 'nakadi'. A plugin implementing this method could
      * check that (a) 'username' is an accepted key, and (b) 'nakadi' is a username that exists and is active.
@@ -33,7 +33,19 @@ public interface AuthorizationService {
      * @return true if the all the attributes of the resource have the correct access for the operation.
      * @throws PluginException if an error occurred during execution
      */
-    boolean isAuthorizationAttributeValid(Resource resource) throws PluginException;
+    boolean isAuthorizationForResourceValid(Resource resource) throws PluginException;
+
+    /**
+     * Check whether an attribute is valid.
+     *
+     * Example: Take an attribute with key 'username' and value 'nakadi'. A plugin implementing this method could
+     * check that (a) 'username' is an accepted key, and (b) 'nakadi' is a username that exists and is active.
+     *
+     * @param attribute the attribute to validate
+     * @return true if the attribute is valid
+     * @throws PluginException if an error occurred during execution
+     */
+    boolean isAuthorizationAttributeValid(AuthorizationAttribute attribute) throws PluginException;
 
     /**
      * Filters a list of resources based on authorization rules.

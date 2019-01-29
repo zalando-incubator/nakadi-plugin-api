@@ -3,6 +3,7 @@ package org.zalando.nakadi.plugin.api.authz;
 import org.zalando.nakadi.plugin.api.PluginException;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface AuthorizationService {
 
@@ -53,5 +54,5 @@ public interface AuthorizationService {
      * object.
      * @throws PluginException if an error occurred during execution
      */
-    Subject getSubject() throws PluginException;
+    Optional<Subject> getSubject() throws PluginException;
 }

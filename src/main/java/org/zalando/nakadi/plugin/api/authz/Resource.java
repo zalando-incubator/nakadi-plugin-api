@@ -15,5 +15,4 @@ public interface Resource<T> {
     T get();
 
     Map<String, List<AuthorizationAttribute>> getAuthorization();
-
 }

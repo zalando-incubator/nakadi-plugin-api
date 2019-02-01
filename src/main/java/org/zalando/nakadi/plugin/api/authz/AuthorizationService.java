@@ -26,8 +26,8 @@ public interface AuthorizationService {
     /**
      * Check whether a Resource is valid.
      *
-     * Example: Take an attribute with key 'username' and value 'nakadi'. A plugin implementing this method could
-     * check that (a) 'username' is an accepted key, and (b) 'nakadi' is a username that exists and is active.
+     * Example: Take a resource,for example, a subscription. A plugin implementing this method could
+     * check that all the authorisation attributed in subscription is valid and have rights to perform the operation.
      *
      * @param resource the resource that the subject wants to perform an operation on
      * @return true if the all the attributes of the resource have the correct access for the operation.

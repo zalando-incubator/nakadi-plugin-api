@@ -27,7 +27,7 @@ public interface AuthorizationService {
 
     /**
      * Checks whether all the permissions and actions for the resource are valid.
-     * <p>
+     *
      * Example: Take a resource,for example, a subscription. A plugin implementing this method could
      * check that all the authorisation attributed in subscription is valid and have rights to perform the operation.
      *
@@ -42,21 +42,21 @@ public interface AuthorizationService {
 
     /**
      * Check whether an attribute is valid.
-     * <p>
+     *
      * Example: Take an attribute with key 'username' and value 'nakadi'. A plugin implementing this method could
      * check that (a) 'username' is an accepted key, and (b) 'nakadi' is a username that exists and is active.
      *
      * @param attribute the attribute to validate
      * @return true if the attribute is valid
      * @throws PluginException if an error occurred during execution
-     *  @throws AuthorizationInvalidException if an authorization does not meet the required condition
+     * @throws AuthorizationInvalidException if an authorization does not meet the required condition
      */
     boolean isAuthorizationAttributeValid(AuthorizationAttribute attribute) throws PluginException,
             AuthorizationInvalidException;
 
     /**
      * Filters a list of resources based on authorization rules.
-     * <p>
+     *
      * For example, if a user is only able to see the event types for which he has some permissions, this method
      * will take the list of all event types, and return only those that the caller can see.
      *

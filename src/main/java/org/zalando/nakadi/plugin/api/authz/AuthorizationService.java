@@ -49,6 +49,7 @@ public interface AuthorizationService {
      * @param attribute the attribute to validate
      * @return true if the attribute is valid
      * @throws PluginException if an error occurred during execution
+     *  @throws AuthorizationInvalidException if an authorization does not meet the required condition
      */
     boolean isAuthorizationAttributeValid(AuthorizationAttribute attribute) throws PluginException,
             AuthorizationInvalidException;

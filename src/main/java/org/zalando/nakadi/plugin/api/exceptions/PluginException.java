@@ -1,4 +1,4 @@
-package org.zalando.nakadi.plugin.api;
+package org.zalando.nakadi.plugin.api.exceptions;
 
 public class PluginException extends RuntimeException {
 

@@ -1,6 +1,8 @@
 package org.zalando.nakadi.plugin.api.authz;
 
-import org.zalando.nakadi.plugin.api.PluginException;
+import org.zalando.nakadi.plugin.api.exceptions.AuthorizationInvalidException;
+import org.zalando.nakadi.plugin.api.exceptions.OperationOnResourceNotPermitedException;
+import org.zalando.nakadi.plugin.api.exceptions.PluginException;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,7 +19,7 @@ public interface AuthorizationService {
      * be accessible in the context, as done in org.springframework.security.core.context.SecurityContextHolder
      *
      * @param operation the operation (read, write, admin) to authorize
-     * @param resource the resource that the subject wants to perform an operation on
+     * @param resource  the resource that the subject wants to perform an operation on
      * @return true if the subject, is authorized to perform the operation on the resource
      * @throws PluginException if an error occurred during execution
      */
@@ -25,7 +27,7 @@ public interface AuthorizationService {
 
     /**
      * Checks whether all the Authorizations for the Resource are valid.
-     *
+     * <p>
      * Example: Take a resource,for example, a subscription. A plugin implementing this method could
      * check that all the authorisation attributed in subscription is valid and have rights to perform the operation.
      *
@@ -33,11 +35,12 @@ public interface AuthorizationService {
      * @return true if the all the attributes of the resource have the correct access for the operation.
      * @throws PluginException if an error occurred during execution
      */
-    boolean areAllAuthorizationsForResourceValid(Resource resource) throws PluginException;
+    boolean areAllAuthorizationsForResourceValid(Resource resource) throws PluginException,
+            AuthorizationInvalidException, OperationOnResourceNotPermitedException;
 
     /**
      * Check whether an attribute is valid.
-     *
+     * <p>
      * Example: Take an attribute with key 'username' and value 'nakadi'. A plugin implementing this method could
      * check that (a) 'username' is an accepted key, and (b) 'nakadi' is a username that exists and is active.
      *
@@ -45,11 +48,12 @@ public interface AuthorizationService {
      * @return true if the attribute is valid
      * @throws PluginException if an error occurred during execution
      */
-    boolean isAuthorizationAttributeValid(AuthorizationAttribute attribute) throws PluginException;
+    boolean isAuthorizationAttributeValid(AuthorizationAttribute attribute) throws PluginException,
+            AuthorizationInvalidException;
 
     /**
      * Filters a list of resources based on authorization rules.
-     *
+     * <p>
      * For example, if a user is only able to see the event types for which he has some permissions, this method
      * will take the list of all event types, and return only those that the caller can see.
      *

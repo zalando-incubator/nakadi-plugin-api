@@ -1,5 +1,7 @@
 package org.zalando.nakadi.plugin.api;
 
+import org.zalando.nakadi.plugin.api.exceptions.PluginException;
+
 public interface ApplicationServiceFactory {
 
     /**

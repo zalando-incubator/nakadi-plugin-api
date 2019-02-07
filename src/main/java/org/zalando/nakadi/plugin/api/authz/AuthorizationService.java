@@ -29,7 +29,7 @@ public interface AuthorizationService {
      * Checks whether all the attributes for authorization for the resource are valid.
      * It throws exception in case of problem and returns nothing otherwise.
      *
-     * Example: Take a resource,for example, a subscription. A plugin implementing this method could
+     * Example: Take a resource, for example, a subscription. A plugin implementing this method could
      * check that all the authorisation attributed in subscription is valid and have rights to perform the operation.
      *
      * @param resource the resource that the subject wants to perform an operation on

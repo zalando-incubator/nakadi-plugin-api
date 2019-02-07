@@ -1,7 +1,7 @@
 package org.zalando.nakadi.plugin.api.authz;
 
 import org.zalando.nakadi.plugin.api.exceptions.AuthorizationInvalidException;
-import org.zalando.nakadi.plugin.api.exceptions.OperationOnResourceNotPermitedException;
+import org.zalando.nakadi.plugin.api.exceptions.OperationOnResourceNotPermittedException;
 import org.zalando.nakadi.plugin.api.exceptions.PluginException;
 
 import java.util.List;
@@ -35,10 +35,10 @@ public interface AuthorizationService {
      * @param resource the resource that the subject wants to perform an operation on
      * @throws PluginException if an error occurred during execution
      * @throws AuthorizationInvalidException if an authorization does not meet the required condition
-     * @throws OperationOnResourceNotPermitedException if an error occurred during execution
+     * @throws OperationOnResourceNotPermittedException if an error occurred during execution
      */
     void isAuthorizationForResourceValid(Resource resource) throws PluginException,
-            AuthorizationInvalidException, OperationOnResourceNotPermitedException;
+            AuthorizationInvalidException, OperationOnResourceNotPermittedException;
 
     /**
      * Filters a list of resources based on authorization rules.

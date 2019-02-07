@@ -19,7 +19,7 @@ public interface AuthorizationService {
      * be accessible in the context, as done in org.springframework.security.core.context.SecurityContextHolder
      *
      * @param operation the operation (read, write, admin) to authorize
-     * @param resource  the resource that the subject wants to perform an operation on
+     * @param resource the resource that the subject wants to perform an operation on
      * @return true if the subject, is authorized to perform the operation on the resource
      * @throws PluginException if an error occurred during execution
      */

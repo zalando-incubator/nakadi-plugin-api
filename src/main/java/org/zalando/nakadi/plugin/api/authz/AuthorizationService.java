@@ -1,6 +1,8 @@
 package org.zalando.nakadi.plugin.api.authz;
 
-import org.zalando.nakadi.plugin.api.PluginException;
+import org.zalando.nakadi.plugin.api.exceptions.AuthorizationInvalidException;
+import org.zalando.nakadi.plugin.api.exceptions.OperationOnResourceNotPermittedException;
+import org.zalando.nakadi.plugin.api.exceptions.PluginException;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,16 +26,19 @@ public interface AuthorizationService {
     boolean isAuthorized(Operation operation, Resource resource) throws PluginException;
 
     /**
-     * Check whether an attribute is valid.
+     * Checks whether all the attributes for authorization for the resource are valid.
+     * It throws exception in case of problem and returns nothing otherwise.
      *
-     * Example: Take an attribute with key 'username' and value 'nakadi'. A plugin implementing this method could
-     * check that (a) 'username' is an accepted key, and (b) 'nakadi' is a username that exists and is active.
+     * Example: Take a resource, for example, a subscription. A plugin implementing this method could
+     * check that all the authorisation attributed in subscription is valid and have rights to perform the operation.
      *
-     * @param attribute the attribute to validate
-     * @return true if the attribute is valid
+     * @param resource the resource that the subject wants to perform an operation on
      * @throws PluginException if an error occurred during execution
+     * @throws AuthorizationInvalidException if an authorization does not meet the required condition
+     * @throws OperationOnResourceNotPermittedException if an error occurred during execution
      */
-    boolean isAuthorizationAttributeValid(AuthorizationAttribute attribute) throws PluginException;
+    void isAuthorizationForResourceValid(Resource resource) throws PluginException,
+            AuthorizationInvalidException, OperationOnResourceNotPermittedException;
 
     /**
      * Filters a list of resources based on authorization rules.

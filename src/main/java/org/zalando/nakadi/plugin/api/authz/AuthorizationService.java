@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface AuthorizationService {
 
     enum Operation {
-        READ, WRITE, ADMIN
+        VIEW, READ, WRITE, ADMIN
     }
 
     /**

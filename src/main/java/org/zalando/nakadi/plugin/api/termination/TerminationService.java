@@ -23,4 +23,12 @@ public interface TerminationService {
      * @throws PluginException
      */
     void deregister(final String listenerName) throws PluginException;
+
+    /**
+     * Current status of the termination.
+     *
+     * @throws PluginException
+     */
+    boolean isTerminating() throws PluginException;
+
 }

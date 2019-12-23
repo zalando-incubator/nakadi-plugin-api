@@ -10,19 +10,10 @@ public interface TerminationService {
     /**
      * Registers lister to be executed once termination event happens.
      *
-     * @param listenerName        name of the listener
      * @param terminationRunnable action to execute once termination event happens
      * @throws PluginException
      */
-    void register(final String listenerName, final TerminationListener terminationRunnable) throws PluginException;
-
-    /**
-     * Removes listener by its name.
-     *
-     * @param listenerName name of the listener
-     * @throws PluginException
-     */
-    void deregister(final String listenerName) throws PluginException;
+    void register(final TerminationListener terminationRunnable) throws PluginException;
 
     /**
      * Current status of the termination.
